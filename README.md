@@ -1,8 +1,6 @@
 # AOC_24
 
-Welcome to the Advent of Code[^aoc] Kotlin project created by [jack-dempster][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
-
-In this repository, jack-dempster is about to provide solutions for the puzzles using [Kotlin][kotlin] language.
+Welcome to the Advent of Code Kotlin project created by [jack-dempster][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
 
 If you're stuck with Kotlin-specific questions or anything related to this template, check out the following resources:
 
