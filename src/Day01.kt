@@ -41,7 +41,6 @@ fun main() {
     }
   }
 
-  // Read the input from the `src/Day01.txt` file.
   val input = readInput("Day01_input")
   check(part1(input) == 1660292)
 
