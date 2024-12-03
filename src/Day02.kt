@@ -17,14 +17,15 @@ fun main() {
         }
   }
 
-  val testInput = readInput("Day02_test").map { row -> row.split(" ").map { it.toInt() } }
+  val testInput = readInputToLines("Day02_test").map { row -> row.split(" ").map { it.toInt() } }
   check(part1(testInput) == 2)
   check(part2(testInput) == 4)
 
-  val edgeCaseInput = readInput("Day02_edge").map { row -> row.split(" ").map { it.toInt() } }
+  val edgeCaseInput =
+      readInputToLines("Day02_edge").map { row -> row.split(" ").map { it.toInt() } }
   check(part2(edgeCaseInput) == 2)
 
-  val input = readInput("Day02_input").map { row -> row.split(" ").map { it.toInt() } }
+  val input = readInputToLines("Day02_input").map { row -> row.split(" ").map { it.toInt() } }
   part1(input).println()
   check(part1(input) == 686)
   part2(input).println()

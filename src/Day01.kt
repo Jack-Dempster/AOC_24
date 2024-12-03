@@ -41,7 +41,7 @@ fun main() {
     }
   }
 
-  val input = readInput("Day01_input")
+  val input = readInputToLines("Day01_input")
   check(part1(input) == 1660292)
 
   check(part2(input) == 22776016)
