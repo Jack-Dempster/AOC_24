@@ -1,41 +1,35 @@
 package day03
 
-import println
 import readInput
+import toInt
 
 fun main() {
 
+  val digitRegex = "[0-9]{1,3},[0-9]{1,3}".toRegex()
+
   fun part1(input: String): Int {
     val regex = "mul\\([0-9]{1,3},[0-9]{1,3}\\)".toRegex()
-    val digitRegex = "[0-9]{1,3},[0-9]{1,3}".toRegex()
     val validMuls = regex.findAll(input).map { it.value }.toList()
-    val result =
-        validMuls.fold(0) { acc, str ->
-          val splitString = digitRegex.find(str)!!.value.split(",")
-          val exprs = splitString[0].toInt().times(splitString[1].toInt())
-          acc.plus(exprs)
-        }
-    result.println()
-    return result
+    return validMuls.fold(0) { acc, str ->
+      val splitString = digitRegex.find(str)!!.value.split(",").map(::toInt)
+      val (first, second) = splitString
+      acc.plus(first.times(second))
+    }
   }
 
   fun part2(input: String): Int {
     val regex = "mul\\([0-9]{1,3},[0-9]{1,3}\\)|(don't\\(\\)|do\\(\\))".toRegex()
-    val digitRegex = "[0-9]{1,3},[0-9]{1,3}".toRegex()
     val validMuls = regex.findAll(input).map { it.value }.toList()
     var doMultiply = true
-    val result =
-        validMuls.fold(0) { acc, str ->
-          if (str.contains("don't()")) doMultiply = false
-          else if (str.contains("do()")) doMultiply = true
-          if (doMultiply && !str.contains("do()")) {
-            val splitString = digitRegex.find(str)!!.value.split(",")
-            val exprs = splitString[0].toInt().times(splitString[1].toInt())
-            acc.plus(exprs)
-          } else acc
-        }
-    result.println()
-    return result
+    return validMuls.fold(0) { acc, str ->
+      if (str.contains("don't()")) doMultiply = false
+      else if (str.contains("do()")) doMultiply = true
+      if (doMultiply && !str.contains("do()")) {
+        val splitString = digitRegex.find(str)!!.value.split(",").map(::toInt)
+        val (first, second) = splitString
+        acc.plus(first.times(second))
+      } else acc
+    }
   }
 
   val testInput = readInput("Day03_test")

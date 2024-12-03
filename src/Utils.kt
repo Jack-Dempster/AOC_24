@@ -11,6 +11,8 @@ fun readInput(name: String): String {
   return Path("src/$whichDay/$name.txt").readText().trim()
 }
 
+fun toInt(string: String) = string.toInt()
+
 /** Converts string to md5 hash. */
 fun String.md5() =
     BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
