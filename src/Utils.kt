@@ -4,9 +4,12 @@ import kotlin.io.path.Path
 import kotlin.io.path.readText
 
 /** Reads lines from the given input txt file. */
-fun readInputToLines(name: String) = Path("src/$name.txt").readText().trim().lines()
+fun readInputToLines(name: String) = readInput(name).lines()
 
-fun readInput(name: String) = Path("src/$name.txt").readText().trim()
+fun readInput(name: String): String {
+  val whichDay = "Day\\d+".toRegex().find(name)!!.value
+  return Path("src/$whichDay/$name.txt").readText().trim()
+}
 
 /** Converts string to md5 hash. */
 fun String.md5() =

@@ -1,3 +1,8 @@
+package day03
+
+import println
+import readInput
+
 fun main() {
 
   fun part1(input: String): Int {
@@ -33,10 +38,10 @@ fun main() {
     return result
   }
 
-  val testInput = readInput("Day03_test_input")
+  val testInput = readInput("Day03_test")
   check(part1(testInput) == 161)
 
-  val testPart2 = readInput("Day03_test_input_part2")
+  val testPart2 = readInput("Day03_test_part2")
   check(part2(testPart2) == 48)
 
   val input = readInput("Day03_input")

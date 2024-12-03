@@ -1,3 +1,8 @@
+package day02
+
+import println
+import readInputToLines
+
 fun main() {
 
   fun isSafe(row: List<Int>): Boolean {
