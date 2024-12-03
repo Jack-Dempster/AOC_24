@@ -6,12 +6,14 @@ import kotlin.io.path.readText
 /** Reads lines from the given input txt file. */
 fun readInputToLines(name: String) = readInput(name).lines()
 
+/** Read input using package name to find file */
 fun readInput(name: String): String {
   val whichDay = "Day\\d+".toRegex().find(name)!!.value
   return Path("src/$whichDay/$name.txt").readText().trim()
 }
 
-fun toInt(string: String) = string.toInt()
+/** Converts all Strings in list to Ints */
+fun List<String>.allToInt() = this.map { it.toInt() }
 
 /** Converts string to md5 hash. */
 fun String.md5() =

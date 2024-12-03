@@ -1,7 +1,7 @@
 package day03
 
+import allToInt
 import readInput
-import toInt
 
 fun main() {
 
@@ -11,7 +11,7 @@ fun main() {
     val regex = "mul\\([0-9]{1,3},[0-9]{1,3}\\)".toRegex()
     val validMuls = regex.findAll(input).map { it.value }.toList()
     return validMuls.fold(0) { acc, str ->
-      val splitString = digitRegex.find(str)!!.value.split(",").map(::toInt)
+      val splitString = digitRegex.find(str)!!.value.split(",").allToInt()
       val (first, second) = splitString
       acc.plus(first.times(second))
     }
@@ -25,7 +25,7 @@ fun main() {
       if (str.contains("don't()")) doMultiply = false
       else if (str.contains("do()")) doMultiply = true
       if (doMultiply && !str.contains("do()")) {
-        val splitString = digitRegex.find(str)!!.value.split(",").map(::toInt)
+        val splitString = digitRegex.find(str)!!.value.split(",").allToInt()
         val (first, second) = splitString
         acc.plus(first.times(second))
       } else acc
