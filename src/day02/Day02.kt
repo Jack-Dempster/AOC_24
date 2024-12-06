@@ -3,7 +3,6 @@ package day02
 import allToInt
 import println
 import readInputToLines
-import toInt
 
 fun main() {
 
